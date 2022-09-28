@@ -27,7 +27,7 @@ function Navbar() {
                 <Menu isOpen={isOpen}>
                     <MenuButton as={Button} onMouseEnter={onOpen}
                         onMouseLeave={onClose} rightIcon={<ChevronDownIcon />}>
-                        FEATURES
+                        FEATURESE
                     </MenuButton>
                     <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
                         <MenuItem>Time Tracker</MenuItem>
