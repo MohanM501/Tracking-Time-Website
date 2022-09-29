@@ -1,11 +1,19 @@
 
 import './App.css';
-import Navbar from './Components/Navbar';
+import AllRoutes from './Pages/AllRoutes';
+import {bgGradient,Box,bg} from "@chakra-ui/react";
+
+import Home from './Pages/Home';
+
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
+    <div className="App"  >
+     
+      <Box>
+          {<AllRoutes/>}
+      </Box>
+      
     </div>
   );
 }
