@@ -10,3 +10,5 @@ function AuthContextProvider({children}){
       return <AuthContext.Provider value={{isAuth,ToggleAuth}}>{children}</AuthContext.Provider>
 }
 export default AuthContextProvider;
+
+// Day-4
