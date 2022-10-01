@@ -41,10 +41,10 @@ function Navbar() {
     
 
     return (
-        <Box >
-            <Flex direction={{base:"column", md:"row",lg:"row"}} minWidth="2" height="10" py="1rem"  my={1} border="red">
+        <Box style={{width:"100%",height:"70px",top:"0px",position:"sticky",backgroundColor:"lightgray"}}>
+            <Flex  direction={{base:"column", md:"row",lg:"row"}} minWidth="2" height="10" py="1rem"  my={1} border="red">
             <Box  display={{sm:"block",base:"none"}} mx={20}  boxSize="sm">
-                    <NavLink to="/"><Image height="30px" weight="30px" src='https://trackingtime.co/wp-content/themes/trackingtime-v5/img/layout/header/logo.svg' alt='Dan Abramov' /></NavLink>
+                    <NavLink to="/"><Image height="30px" my={2} weight="30px" src='https://trackingtime.co/wp-content/themes/trackingtime-v5/img/layout/header/logo.svg' alt='Dan Abramov' /></NavLink>
                     
                 </Box>
                 <Box mx={0} display={{sm:"none",base:"block"}} style={{display:"flex", alignItems:"center",justifyContent:"space-around",margin:"auto"}}  boxSize="sm">

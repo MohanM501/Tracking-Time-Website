@@ -1,43 +1,102 @@
 import { AuthContext } from "../AuthContext/AuthContext";
 import React from "react";
+import { Container, Button, Box, ButtonGroup, Input,Checkbox } from "@chakra-ui/react";
+import { FaGoogle, FaMicrosoft, FaApple } from "react-icons/fa";
+import {Link,NavLink,Navigate} from "react-router-dom";
+import "./Login.Module.css";
+import axios from "axios";
+import { Form } from "react-router-dom";
+import {
+  Stack,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from '@chakra-ui/react'
 
-function Login(){
-  const {isAuth,ToggleAuth}=React.useContext(AuthContext)
 
+const getResponse=(data={})=>{
+  return axios.post(`https://reqres.in/api/login`,{
+    email:data.email,
+    password:data.password
+  });
+}
+
+
+function Login() {
+  const { isAuth,setAuth, ToggleAuth,token,setToken } = React.useContext(AuthContext)
+  const [change,setChange]=React.useState(false);
+  const [isLoading,setLoading]=React.useState(true);
+  const [form,setForm]=React.useState({
+    email:"",
+    password:""
+  })
+  // loading purpose
+  const id=setTimeout(()=>{
+    setLoading(false);
+  },2000)
+  if(isLoading){
+    return (<h1>Loading...
+      <Container> <img width="200px" height="200px" src="https://trackingtime.co/wp-content/themes/trackingtime-v5/img/layout/header/logo.svg" alt="logo" /></Container>
+    </h1>)
+  }
+  //console.log(isLoading,"isLoading in login");
+  // onChange
+  const handleChange=(e)=>{
+      console.log(e.target.value,"target");
+      const {name,value}=e.target;
+      setForm({...form,[name]:value})
+
+  }
+  console.log(token,"token")
+  console.log(isAuth,"isAuth_before") 
+  //Post
+  const handleSubmit=()=>{
+    console.log(form,"form")
+       getResponse(form).then((res)=>{console.log(res.data,"res")
+          let {token}=res.data;
+          if(token!==undefined){
+            setToken(token)
+            setAuth(true)
+            console.log(isAuth,"isAuth_after")
+            
+          }
+      })
+       .catch((error)=>{console.log(error,"error");alert("Wrong Details")
+      })
+  }
+  if(isAuth){
+     return (<Navigate to="/todo"></Navigate>);
+  }
 
   return (
-      <>
-          <h1>Hii Login Page
-          Various educators teach rules governing the length of paragraphs. They may say that a paragraph should be 100 to 200 words long, or be no more than five or six sentences. But a good paragraph should not be measured in characters, words, or sentences. The true measure of your paragraphs should be ideas.
 
-How many sentences are in a paragraph?
-Your childhood teacher did not wrong you when they taught you that there should be three, or four, or five sentences in a paragraph. It is important to understand, however, that the aim in teaching this was not to impart a hard-and-fast rule of grammar, drawn from an authoritative-but-dusty book. The true aim of this strategy was to teach you that your ideas must be well supported to be persuasive and effective.
+    <div style={{ display: "flex", height:"625px",width:"100%" }}>
+ 
+     <img width="50%" src="https://agenciaefe.es/wp-content/uploads/2022/03/Logo_EFE-escuela.jpg" alt="Image" />
+      
+      <Container className="log" >
+        
+        <Box ml="150px" mt="40px">
+          <img width="200px" height="200px" src="https://trackingtime.co/wp-content/themes/trackingtime-v5/img/layout/header/logo.svg" alt="logo" />
+        </Box>
+        <Box ><Button leftIcon={<FaGoogle color="green" />} colorScheme="gray" size="lg">Sign in with Google</Button></Box>
+        <Box ><Button leftIcon={<FaMicrosoft color="green" />} colorScheme="gray" size="lg">Sign in with Google</Button></Box>
+        <Box ><Button leftIcon={<FaApple color="green" />} colorScheme="gray" size="lg">Sign in with Google</Button></Box>
+        <h4>Sign in with your Email</h4>
+        <Box><Input name="email" value={form.email} onChange={handleChange} size="lg" width="250px" type="email" placeholder="Email" /></Box>
+        <Box><Input name="password" value={form.password} onChange={handleChange} size="lg" width="250px" type="password" placeholder="Password" /></Box>
+        {change===false?<Box fontSize="12px"> Forgot Your Password?Retrieve</Box>:<Box><Checkbox>I agree to terms {"&"} Conditions</Checkbox></Box>}
+        
+         {change===false?<Button onClick={handleSubmit}width="250px"colorScheme="purple" size="lg">Log In</Button>:<Button width="250px"colorScheme="purple" size="lg">SignUp</Button>}
+         <Box margin="10px">
+           {change===false?<Box onClick={()=>{setChange(true)}}>Don't  have Account? <u>SignUp</u> </Box>:<Box onClick={()=>{setChange(false)}}>Already have Account? <u>LogIn</u> </Box>}
+         </Box>
+        <Box><u>Terms of service</u>/<u>Privacy Policy</u></Box>
+       
+      </Container>
 
-
-Here’s a tip: Want to make sure your writing shines? Grammarly can check your spelling and save you from grammar and punctuation mistakes. It even proofreads your text, so your work is extra polished wherever you write.
-Your writing, at its best
-Grammarly helps you communicate confidently
-WRITE WITH GRAMMARLY
-The model regarding paragraph length that your teacher undoubtedly taught you involves a topic sentence, a number of facts that support that core idea, and a concluding sentence. The proviso about the number of sentences between the topic sentence and the conclusion was not given to you because it was the magic formula for creating paragraphs of the perfect length; rather, your educator was attempting to give you a good reason to do adequate research on your topic. Academic writing yields the best examples of the topic-support-conclusion paragraph structure.
-
-
-Recent research has provided a wealth of insight about how dogs came to be domesticated by humans and the roles they played in Native American culture. DNA studies on archaeological finds suggest that dogs may have been domesticated by humans as long as 40,000 years ago. When the first humans came to North America from Eurasia, at least 12,000 years ago, domesticated dogs came with them. They appear to have been highly prized by early North American hunter-gatherers and were their only animal companions for centuries, since there were no horses on the continent until the 16th century.
-You can see from this example how a topic is introduced, supported, and then brought to its natural conclusion. Yet, not all writing is academic, and once you have learned the concept behind good paragraph construction—which is really the art of focused writing in disguise—you should know that there are times when paragraph “rules” can, and should, be broken.
-
-READ: Splitting Paragraphs for Easier Reading
-
-How to write paragraphs people want to read
-The fact of the matter is that although you may have numerous valid facts or descriptions related to your paragraph’s core idea, you may lose a reader’s attention if your paragraphs are too long. What’s more, if all of your paragraphs are long, you may lose opportunities to draw your reader in. Journalists, for example, know that their readers respond better to short paragraphs. News readers generally lose interest with long descriptions and even one-sentence paragraphs are considered both acceptable and impactful.
-
-
-Firefighters rushed to First Avenue today to extinguish a blaze on the 1500 block. Anguished onlookers hoped that the flames would be subdued in time to rescue the building’s most prized inhabitants.
-They weren’t.
-
-The cat hospital was gone.
-
-When it comes to maintaining a reader’s attention, a good rule of thumb might be to avoid writing more than five or six sentences in a paragraph before finding a logical place to break. That said, remember that the idea behind a paragraph might be short and sweet, or it might merit deeper explanation. There are no strict rules about how many words or lines your paragraphs should be, and there’s no need to lock your doors if you occasionally write long or short ones. The grammar police aren’t coming for you.
-          </h1>
-      </>
+    </div>
   )
 
 }

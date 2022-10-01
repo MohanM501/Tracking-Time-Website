@@ -4,6 +4,8 @@ import React from "react";
 import Home from "./Home";
 import Login from "./Login";
 import Features from "./Features";
+import Todo from "./Todo";
+import PrivateRoute from "../Components/PrivateRoute";
 
 function AllRoutes(){
 
@@ -12,7 +14,7 @@ function AllRoutes(){
            <Route path="/" element={<Home/>}></Route>    
           <Route path="/login" element={<Login/>}></Route> 
           <Route path="/features/:id" element={<Features/>}></Route>
-          
+           <Route path="/todo" element={<PrivateRoute><Todo/></PrivateRoute>}></Route>
       </Routes>
    )
 
