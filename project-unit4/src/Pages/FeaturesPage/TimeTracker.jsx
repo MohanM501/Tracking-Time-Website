@@ -1,27 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
 
 import { Button, createIcon,Stack, HStack, Input, FormControl,Container, Box, Image,Text, VStack, Heading, border, textDecoration, Spacer, color} from "@chakra-ui/react";
 import { extendTheme } from '@chakra-ui/react'
 
 const img = [
-    require("https://trackingtime.co/wp-content/uploads/2020/07/Home-office-and-remote-working-solutions-for-team-collaboration.svg"),
-    require("https://trackingtime.co/wp-content/uploads/2020/07/Home-office-and-remote-working-solutions-for-team-collaboration.svg"),
-    require("https://trackingtime.co/wp-content/uploads/2020/08/start-tracking-ok.svg"),
-    require("https://trackingtime.co/wp-content/uploads/2020/04/landing-remote-teams-ind-RemoteTeams-feature05@2x-585x400.png"),
-    require("https://trackingtime.co/wp-content/uploads/2020/04/landing-developers-ind-Developer-feature-03.svg"),
-    require("https://trackingtime.co/wp-content/uploads/2020/04/landing-developers-ind-Developer-Fixes@2x-585x400.png"),
-    require("https://trackingtime.co/wp-content/themes/trackingtime-v5/img/keywords/slider-1.svg"), 
-    require("https://trackingtime.co/wp-content/themes/trackingtime-v5/img/keywords/slider-2.svg"),  
-    require("https://trackingtime.co/wp-content/themes/trackingtime-v5/img/keywords/slider-3.svg"), 
-    require("https://trackingtime.co/wp-content/themes/trackingtime-v5/img/keywords/slider-4.svg"), 
+    "https://trackingtime.co/wp-content/uploads/2020/07/Home-office-and-remote-working-solutions-for-team-collaboration.svg",
+    "https://trackingtime.co/wp-content/uploads/2020/04/freelance-feature-01-481x400.jpg",
+    "https://trackingtime.co/wp-content/uploads/2020/08/start-tracking-ok.svg",
+    "https://trackingtime.co/wp-content/uploads/2020/04/landing-remote-teams-ind-RemoteTeams-feature05@2x-585x400.png",
+    "https://trackingtime.co/wp-content/uploads/2020/04/landing-developers-ind-Developer-feature-03.svg",
+    "https://trackingtime.co/wp-content/uploads/2020/04/landing-developers-ind-Developer-Fixes@2x-585x400.png",
+    "https://trackingtime.co/wp-content/themes/trackingtime-v5/img/keywords/slider-1.svg", 
+    "https://trackingtime.co/wp-content/themes/trackingtime-v5/img/keywords/slider-2.svg",  
+    "https://trackingtime.co/wp-content/themes/trackingtime-v5/img/keywords/slider-3.svg", 
+    "https://trackingtime.co/wp-content/themes/trackingtime-v5/img/keywords/slider-4.svg", 
    
     
 ]
 
 const btnimg = [
-    require("https://trackingtime.co/wp-content/uploads/2020/03/timesheets-app.svg"),
-    require("https://trackingtime.co/wp-content/uploads/2020/08/start-tracking-ok.svg"),
-    require("https://trackingtime.co/wp-content/uploads/2020/08/start-tracking-ok.svg"),
+    "https://trackingtime.co/wp-content/uploads/2020/03/timesheets-app.svg",
+    "https://trackingtime.co/wp-content/uploads/2020/08/start-tracking-ok.svg",
+    "https://trackingtime.co/wp-content/uploads/2020/08/start-tracking-ok.svg",
 ]
 
 
@@ -210,7 +211,7 @@ const Timetracker = () => {
     
   return (
     <Box>
-
+           
             <Box style={styles.cont} className={CSS.cont} >
                 
             <Image src={logo1} style={styles.logo1Div} />
