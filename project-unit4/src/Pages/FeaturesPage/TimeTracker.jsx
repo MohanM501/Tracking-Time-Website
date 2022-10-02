@@ -140,8 +140,7 @@ const styles ={
         textDecoration:"underline"
      },
 
-     dispBtn:{
-        // backgroundColor:"white",
+     dispBtn:{ 
         width:"100%",
         height:"60px",
         marginBottom:"10px",
@@ -149,7 +148,6 @@ const styles ={
      },
      
      lastHeading:{
-        // margin: 0!important;
     marginTop: "50px",
     marginBottom:"50px",
     textAlign: "center",
