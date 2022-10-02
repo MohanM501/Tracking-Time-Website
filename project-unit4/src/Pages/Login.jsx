@@ -71,7 +71,7 @@ function Login() {
 
   return (
 
-    <div style={{ display: "flex", height:"625px",width:"100%" }}>
+    <div style={{ display: "flex", height:"775px",width:"100%" }}>
  
      <img width="50%" src="https://agenciaefe.es/wp-content/uploads/2022/03/Logo_EFE-escuela.jpg" alt="Image" />
       
