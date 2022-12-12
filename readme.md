@@ -1,7 +1,7 @@
 
 ### Time-Tracker Website 
 
-<h3>Indivisual Projct created using react </h3>
+<h3>Indivisual Projct created using react,css and chakra-ui </h3>
 
 <p>
   <img src="https://i.ibb.co/1LRKz2d/Time-Tracker.png" alt="time"/>
